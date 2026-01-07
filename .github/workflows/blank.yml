@@ -2,10 +2,13 @@ name: No Concurrency Demo
 
 on:
   push:
-
+  
 concurrency:
-  group: branch-${{ github.ref }}
+  group: ${{ github.workflow }}
   cancel-in-progress: true
+# concurrency:
+#   group: branch-${{ github.ref }}
+#   cancel-in-progress: true
 
 jobs:
   demo:
