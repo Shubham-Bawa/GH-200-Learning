@@ -3,6 +3,10 @@ name: No Concurrency Demo
 on:
   push:
 
+concurrency:
+  group: branch-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   demo:
     runs-on: ubuntu-latest
